@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+
+     
+     <div class="main-content"> 
+    <div class="converter">
+      <div class="upper">
+        <h2 id="h2">BUY $CHON - YOUR TOKEN FOR THE CHON MEME GENERATOR</h2>
+      </div>
+      <p class="exchange-rate">1 $CHON = $0.00004525</p>
+
+      <div class="coins">
+        <div class="coin">
+          <img src="https://www.superchonpresale.com/wp-content/uploads/2023/07/eth.svg" alt="" />
+          ETH
+        </div>
+        <div class="coin">
+          <img src="https://www.superchonpresale.com/wp-content/uploads/2023/07/usdt.svg" alt="" />
+          <p>
+            USDT
+            <small style="display: block; font-weight: 300; font-size: 12px"
+              >ERC20</small
+            >
+          </p>
+        </div>
+      </div>
+      <p class="balance">ETH balance 0</p>
+
+      <form>
+        <div class="main-content">
+          <div class="inputs">
+            <label for="amount">Amount in <b>ETH</b> you pay</label>
+            <div class="input-container">
+              <input type="number" name="amount" id="pay" placeholder="0.0" />
+              <img src="https://www.superchonpresale.com/wp-content/uploads/2023/07/eth.svg" alt="" />
+            </div>
+          </div>
+
+          <div class="inputs">
+            <label for="amount">Amount in <b>$CHON</b> you receive</label>
+            <div class="input-container">
+              <input
+                type="number"
+                name="amount"
+                id="receive"
+                placeholder="0.0"
+              />
+              <img src="https://www.superchonpresale.com/wp-content/uploads/2023/07/ai.jpg" alt="" />
+            </div>
+            <small style="color: red; display: none" id="error-amount"
+              >Min amount is $100</small
+            >
+          </div>
+        </div>
+
+        <p style="text-align: center; margin-bottom: 1rem">
+          0.015 ETH is reserved for gas. The actual amount used will depend on
+          the network.
+        </p>
+        <button onclick="showModal()">Buy now</button>
+      </form>
+    </div>
+    </div>
+    <div class="modal">
+        <w3m-core-button></w3m-core-button>
+
+  <div class="modal-content">
+
+    <h2>Connect Your Wallet</h2>
+    <w3m-core-button>Gbera</w3m-core-button>
+
+    <div class="wallet-options">
+    
+      <button class="wallet-btn">
+        <img src="https://www.superchonpresale.com/wp-content/uploads/2023/07/metamask-icon.png">
+        MetaMask
+      </button>
+      
+      <button class="wallet-btn">
+        <img src="https://www.superchonpresale.com/wp-content/uploads/2023/07/WalletConnect-icon.png">
+        WalletConnect
+      </button>
+      <button id="my-button">The Connect Wallet</button>
+      
+      
+      
+      <button class="wallet-btn">  
+        
+        I dont have a wallet
+      </button>
+
+    </div>
+
+    <button class="close-modal-btn">Close</button>
+
+  </div>
+
+</div>
+
+
+ 
+  </body>
+  
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        background-color: #000;
+        }
+
+      .converter {
+        background-color: #d6e3d9;
+        padding: 0 0.5rem 2rem;
+        /* padding-bottom: 2rem; */
+        max-width: 510px;
+        margin: auto;
+        border-radius: 0.5rem;
+      }
+      
+      .converter *{
+        color: black;
+          
+          
+      }
+
+      .converter .upper {
+        border-radius: 24px 24px 0 0;
+        border: 6px solid white;
+        background: linear-gradient(180deg, #27c527 -4.32%, #042948 91.56%);
+        color: #fff !important;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      #h2{
+          color: #fff !important;
+      }
+
+      .exchange-rate {
+        position: relative;
+        text-align: center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .exchange-rate::after,
+      .exchange-rate::before {
+        content: "";
+        width: 25%;
+        height: 1px;
+        background: #c7ced3;
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+      .exchange-rate::after {
+        left: auto;
+        right: 0;
+      }
+      .coins {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+      }
+      .coins .coin {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        text-transform: uppercase;
+        width: 100%;
+        padding: 7px;
+        height: 48px;
+        border-radius: 0.4rem;
+        border: 2px solid #f1f4f6;
+        color: #535353;
+        font-weight: 600;
+        background-color: #f1f4f6;
+      }
+      .coins .coin img {
+        width: 24px;
+      }
+      .coin p{
+       
+          margin-top: 22px
+      }
+      .coins .coin.active-coin {
+        border: 2px solid #3980b9;
+        color: #3980b9;
+      }
+
+      .balance {
+        border-bottom: 1px solid #dee2e6;
+        padding: 0.5rem 0;
+        color: rgb(114, 123, 131);
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .main-content {
+        display: flex;
+        gap: 2rem;
+      }
+
+      form .inputs {
+        display: flex;
+        align-items: start;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.25rem;
+      }
+      form label {
+        /* font-weight: 600; */
+        font-size: 14px;
+      }
+      form .inputs .input-container {
+        height: 60px;
+        padding: 8px 15px;
+        font-size: 0.875rem;
+        background-color: #f1f4f6;
+        border: 2px solid #f1f4f6;
+        color: #727b83;
+
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        padding: 0.875rem 1rem;
+        font-size: 1.125rem;
+        font-weight: 400;
+        line-height: 1.2;
+        color: #fff;
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0.4rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+      form .inputs .input-container img {
+        width: 28px;
+      }
+      form .inputs .input-container input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: none;
+      }
+
+      form button {
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 30px;
+        background: #182b48;
+        width: 70%;
+        height: 52px;
+        margin-bottom: 1rem;
+        color: #fff !important;
+        line-height: 1;
+        transition: all 0.25s ease-in-out;
+        font-weight: 500;
+        margin: auto;
+        padding-bottom:;
+        display: block;
+      }
+      .modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+background-color: #fff;
+margin: 15% auto;
+padding: 20px;
+width: 80%;
+box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.wallet-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.wallet-btn {
+  border: none;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+} 
+
+.wallet-btn img {
+  width: 28px; 
+  margin-right: 10px;
+}
+
+/* Close Button */
+
+.close-modal-btn {
+  /* styles */
+}
+    </style>
+  
+     <script>
+      const pay = document.getElementById("pay");
+      const receive = document.getElementById("receive");
+
+      const coinPrice = 0.00004525;
+
+      pay.addEventListener("input", () => {
+        console.log(pay.value);
+        console.log(pay.value / coinPrice);
+        const res = (pay.value / coinPrice).toFixed(2);
+        receive.value = res;
+      });
+
+      receive.addEventListener("input", () => {
+      
+        const res = (receive.value * coinPrice).toFixed(8);
+        pay.value = res;
+        
+      });
+      function showModal() {
+document.querySelector('.modal').style.display = "block";
+
+// populate modal data
+document.getElementById("modal-amount").innerText = receive.value;
+document.getElementById("modal-cost").innerText = pay.value;
+}
+const cancelBtn = document.getElementById("cancel-btn");
+const confirmBtn = document.getElementById("confirm-btn");
+
+cancelBtn.onclick = closeModal;
+confirmBtn.onclick = closeModal;
+
+function closeModal() {
+document.querySelector('.modal').style.display = "none";
+}
+
+
+document.getElementById('my-button').addEventListener('click', () => {
+  web3modal.openModal()
+})
+    </script>
+    
+    
+    
+    <script type="module">
+import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
+import { Web3Modal } from '@web3modal/html'
+import { configureChains, createConfig } from '@wagmi/core'
+import { arbitrum, mainnet, polygon } from '@wagmi/core/chains'
+
+const chains = [arbitrum, mainnet, polygon]
+const projectId = '93f52ed721a941d0ea9d60bc948ca35d'
+
+const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors: w3mConnectors({ projectId, chains }),
+  publicClient
+})
+const ethereumClient = new EthereumClient(wagmiConfig, chains)
+const web3modal = new Web3Modal({ projectId }, ethereumClient)
+
+
+
+
+
+</script>
+	
+  
+</html>
